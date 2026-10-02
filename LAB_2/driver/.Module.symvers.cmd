@@ -1,0 +1,1 @@
+cmd_/home/hoaqthan/embedded_lab2/driver/Module.symvers := sed 's/\.ko$$/\.o/' /home/hoaqthan/embedded_lab2/driver/modules.order | scripts/mod/modpost    -o /home/hoaqthan/embedded_lab2/driver/Module.symvers -e -i Module.symvers   -n -T -

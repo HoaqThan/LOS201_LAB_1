@@ -1,0 +1,17 @@
+echo "=========================================="
+echo " Starting Embedded Linux System (LAB-02)  "
+echo "=========================================="
+
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t devtmpfs none /dev 2>/dev/null || true
+
+echo "[rcS] Filesystems mounted successfully."
+
+if [ -f /lib/modules/5.15.0/lab2_driver.ko ]; then
+    insmod /lib/modules/5.15.0/lab2_driver.ko
+    mknod /dev/lab2 c 240 0 2>/dev/null || true
+    echo "[rcS] lab2_driver loaded automatically."
+fi
+
+echo "[rcS] System init complete."
